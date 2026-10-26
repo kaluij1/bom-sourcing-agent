@@ -1,4 +1,8 @@
-# BOM Sourcing Agent (Python)
+# BOM Sourcing Agent
+
+An agent that compares price, lead time, and stock for a bill of materials across industrial supplier sites that have no public API, using [Solari](https://getsolari.com) cloud browsers and Claude for extraction.
+
+I originally built this as an example for the [Solari cookbook](https://github.com/solari-sdk/solari-cookbook). This repo carries it forward on its own, with its full commit history.
 
 Give it a small bill of materials (a CSV of part descriptions) and it checks
 multiple industrial-parts suppliers — none of which expose a public shopping
@@ -39,7 +43,8 @@ that a cloud browser + an LLM can automate end to end.
 ## Setup
 
 ```bash
-cd solari-cookbook/examples/bom-sourcing-agent-py
+git clone https://github.com/kaluij1/bom-sourcing-agent
+cd bom-sourcing-agent
 pip install -r requirements.txt
 export SOLARI_API_KEY=slr_live_...          # console.getsolari.com
 export ANTHROPIC_API_KEY=sk-ant-...         # console.anthropic.com
@@ -120,5 +125,5 @@ worth reading if you're extending this or hitting similar errors.
   `bom_report.csv` — worth reading on any row marked `no match`.
 - **Each `(part, supplier)` pair gets its own browser session** — slower
   than reusing one session across searches, but avoids state bleeding
-  across unrelated queries. See `browser-profiles-ts` in this cookbook if
+  across unrelated queries. See the `browser-profiles-ts` example in the [Solari cookbook](https://github.com/solari-sdk/solari-cookbook) if
   you want to explore session reuse.

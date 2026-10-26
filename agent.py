@@ -2,7 +2,7 @@
 
 Each search gets its own session on purpose: a bad or blocked search never
 leaves cookies/state that could skew the next one, and sessions are cheap
-and fast to boot on Solari's infrastructure (see the cookbook's
+and fast to boot on Solari's infrastructure (see the Solari cookbook's
 browser-quickstart examples for the bare-bones version of this call).
 """
 
@@ -55,7 +55,7 @@ async def fetch_quote(solari: Solari, supplier: Supplier, part_description: str)
             # challenge pages, or a JS-heavy site quietly refusing to run
             # search for a non-human-looking session). stealth + a
             # residential proxy is Solari's fix for this pairing — see
-            # browser-stealth-proxy-ts in this cookbook for the underlying
+            # browser-stealth-proxy-ts in the Solari cookbook for the underlying
             # mechanism.
             browser = await asyncio.wait_for(
                 solari.launch(stealth=True),

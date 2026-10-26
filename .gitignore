@@ -1,1 +1,4 @@
 bom_report.csv
+__pycache__/
+.venv/
+.env
